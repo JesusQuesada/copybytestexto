@@ -20,24 +20,19 @@ public class Copybytestexto {
         int i = 0;
 
         FileInputStream fis1 = new FileInputStream(fis);
+        FileOutputStream fos1 = new FileOutputStream(fos, wr);
 
-//        String s = "";
-        while (i != -1) {
-            i = fis1.read();
-//            s = s + String.valueOf((char) i);
-
-            FileOutputStream fos1 = new FileOutputStream(fos, wr);
-//            byte[] b = s.getBytes();
-            if (i != -1) {
+        while ((i = fis1.read())!= -1) {
+          
                 fos1.write(i);
 
-            } else {
-                fos1.write(10);
+            } 
+           
                 fos1.close();
                 fis1.close();
-            }
+            System.out.println("El texto se ha copiado del archivo 'texto1' al archivo 'texto2'.");
         }
 
-        System.out.println("El texto se ha copiado del archivo 'texto1' al archivo 'texto2'.");
+        
     }
-}
+
